@@ -33,6 +33,10 @@ gem 'carrierwave'
 # gem 'fog'
 # gem 'mini_magick'
 
+# gem 'to_lang'
+
+gem 'react-rails', '~> 1.6.0'
+
 # Templating
 gem 'haml'
 gem 'haml-rails'
@@ -52,6 +56,7 @@ gem 'gistance'
 # Helper
 gem 'country_select'
 
+gem "rolify"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
