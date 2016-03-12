@@ -1,0 +1,61 @@
+%form.form-horizontal
+  %fieldset
+    / Form Name
+    %h1.text-center Nouveau profil Association
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "nom"} NOM DE L'ASSOCIATION
+      .col-md-4
+        %input#nom.form-control.input-md{:name => "nom", :placeholder => "NOM", :required => "", :type => "text"}/
+
+        / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "adresse"} Adresse
+      .col-md-4
+        %input#nom.form-control.input-md{:name => "nom", :placeholder => "ex: 20 rue de la Paix", :required => "", :type => "text"}/
+
+      / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "cp"} Code Postal
+      .col-md-4
+        %input#nom.form-control.input-md{:name => "cp", :placeholder => "ex: 75002", :required => "", :type => "text"}/
+
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "cp"} Ville
+      .col-md-4
+        %input#nom.form-control.input-md{:name => "ville", :placeholder => "ex: Paris", :required => "", :type => "text"}/
+
+  
+
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "prenom"} Responsable
+      .col-md-4
+        %input#prenom.form-control.input-md{:name => "prenom", :placeholder => "ex: Prénom NOM", :required => "", :type => "text"}/
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "phone"} Téléphone
+      .col-md-4
+        %input#phone.form-control.input-md{:name => "phone", :placeholder => "06xxxxxxxx", :required => "", :type => "text"}/
+    / Select Basic
+    .form-group
+      %label.col-md-4.control-label{:for => "tags"} Tag
+      .col-xs-4
+        %select#tags.form-control{:name => "tags"}
+          %option{:value => "1"} tag #1
+          %option{:value => "2"} tag #2
+          %option{:value => "3"} tag #3
+          %option{:value => "4"} tag #4
+          %option{:value => "5"} tag #5
+    / File Button
+    .form-group
+      %label.col-md-4.control-label{:for => "photo"} Photo
+      .col-md-4
+        %input#photo.input-file{:name => "photo", :type => "file"}/
+    / Button (Double)
+    .form-group
+      %label.col-md-4.control-label{:for => "create"}
+      .col-md-8
+        %button#create.btn.btn-info{:name => "create"} Enregistrer
+        %button#reset.btn.btn-danger{:name => "reset"} Réinitialiser
