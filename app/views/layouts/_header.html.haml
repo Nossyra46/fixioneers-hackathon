@@ -17,7 +17,6 @@
             %span.sr-only (current)
         %li
           %a{:href => "#"} Link
-
       - if @current_organisation
         .navbar-form.navbar-right
           = link_to "Sign out", sessions_path, method: :delete, class: 'btn btn-danger'
