@@ -14,3 +14,4 @@ audits/
 public/**/*
 .env.development
 .env.test
+db/schema.rb
