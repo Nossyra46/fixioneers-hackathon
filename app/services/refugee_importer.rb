@@ -29,7 +29,6 @@ class RefugeeImporter
         refugee = organisation.refugees.create!(ref_params)
       end
 
-
       row[3].split(',').each do |r|
         refugee.add_role r.downcase
       end
