@@ -2,13 +2,18 @@
 	.jumbotron
 		%h1
 			Bonjour, Association X.
-	.action-bar
-		%a.btn.btn-success.col-md-1.col-md-offset-1{:href => "organisations/new"}
-			Créer profil
-		%a.btn.btn-info.col-md-1.col-md-offset-1{:href => "organisations/edit"}
-			Créer message
-	%form.form-horizontal.
+	%form.form-horizontal
 		.form-group
-			%label{:for =>}
+			%label.col-sm-2.control-label{:for => 'inputTags'}
+				Tags
 			.col-md-8
-				%input.form-control{:type => 'text', :id => 'inputEmail', :placeholder => 'Email'}
+				%input.form-control{:type => 'text', :id => 'inputTags', :placeholder => 'Tags'}
+		.form-group
+			%label.col-sm-2.control-label{:for => 'inputMsg'}
+				Message
+			.col-md-8
+				%textarea.form-control{:rows => '4',:id => 'inputMsg', :placeholder => 'Tapez votre message ici...'}
+		.form-group
+			.col-sm-offset-2.col-sm-10
+				%button.btn.btn-success{:type => 'submit'}
+					Envoyer
