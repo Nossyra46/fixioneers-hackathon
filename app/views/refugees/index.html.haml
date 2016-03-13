@@ -2,6 +2,11 @@
   = file_field_tag :file
   = button_tag "Importer"
 
+= form_tag sms_path do
+  = text_area_tag :message
+  = button_tag "Envoyer"
+
+
 %table.table
   %thead
     %tr
@@ -16,3 +21,4 @@
         %td= refugee.phone_number
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
+        %td= link_to "Editer", refugee_path(refugee), class: 'btn btn-info'

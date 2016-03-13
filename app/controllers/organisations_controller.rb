@@ -4,7 +4,9 @@ class OrganisationsController < ApplicationController
   def edit ; end
 
   def update
-    @organisation = Organisation.update!(params[:organisation])
+    @current_organisation.update!(organisation_params)
+
+    redirect_to edit_organisation_path(@current_organisation)
   end
 
   def new
@@ -19,5 +21,11 @@ class OrganisationsController < ApplicationController
     else
       redirect_to root_path, alert: ""
     end
+  end
+
+  private
+
+  def organisation_params
+    params.require(:organisation).permit(:name, :phone_number)
   end
 end
