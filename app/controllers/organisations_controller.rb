@@ -1,4 +1,6 @@
 class OrganisationsController < ApplicationController
+  layout 'connected'
+
   def index ; end
 
   def edit ; end

@@ -1,4 +1,6 @@
 class RefugeesController < ApplicationController
+  layout 'connected'
+
   before_action :load_refugee, except: [:index, :new, :create]
 
   def index
