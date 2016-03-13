@@ -22,7 +22,7 @@
       %th Tags
   %tbody
     - @refugees.each do |refugee|
-      %tr
+      %tr{data: {id: refugee.id}}
         %td= refugee.first_name
         %td= refugee.phone_number
         %td= refugee.locale

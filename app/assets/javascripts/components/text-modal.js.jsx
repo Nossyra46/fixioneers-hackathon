@@ -66,7 +66,7 @@ var TextModal = React.createClass({
             </div>
             <form onSubmit={this.handleSend}>
               <div className='modal-body'>
-                <textarea name='message' className='form-control' placeholder='Your message here...' onChange={this.displayCharsLeft}></textarea>
+                <textarea style={{width: '100%', marginBottom: '10px'}} name='message' className='form-control' placeholder='Your message here...' onChange={this.displayCharsLeft}></textarea>
                 <span className={this.state.isTooLong ? 'pull-right label label-warning' : 'pull-right label label-success'}>{this.state.charsLeft}</span>
               </div>
               <div className='modal-footer'>
