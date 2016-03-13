@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     if organisation
       session[:organisation_id] = organisation.id
 
-      redirect_to refugees_path
+      render status: :ok, json: {name: organisation.name}
     else
-      redirect_to root_path, alert: ""
+      head :unauthorized
     end
   end
 
