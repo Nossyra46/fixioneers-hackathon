@@ -6,12 +6,9 @@
     .form-group
       = button_tag "Import",  class:"btn btn-primary btn-lg"
 
-
-
-= form_tag sms_path do
-  = text_area_tag :message
-  = button_tag "Send"
-
+-# = form_tag sms_path do
+-#   = text_area_tag :message
+-#   = button_tag "Send"
 
 %table.table
   %thead
@@ -27,7 +24,9 @@
         %td= refugee.phone_number
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
-        %td= link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', data: {id: refugee.id}
+        %td
+          = link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', data: {id: refugee.id}
+          = link_to "Edit", refugee_path(refugee), class: 'btn btn-success'
 
 #text-modal
   .modal-dialog
