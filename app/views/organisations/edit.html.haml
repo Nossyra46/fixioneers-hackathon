@@ -1,13 +1,16 @@
 .container
   .row
-    .md-col-8
+    .md-col-6
       .page-header
-        %h2 Editer vos informations
-        = form_for @current_organisation do |f|
-          %label Nom de l'association
-          = f.text_field :name
-          %br
-          %label Numéro de contact
-          = f.text_field :phone_number
-          %br
-          = f.button "Sauvegarder"
+        %h2 Edit your informations
+        = form_for @current_organisation, html: {class: 'form-horizontal'} do |f|
+          .form-group
+            %label{:class => 'control-label'}
+              Association name
+            = f.text_field :name, class: 'form-control'
+          .form-group
+            %label{:class => 'control-label'}
+              Contact number
+            = f.text_field :phone_number, class: 'form-control'
+          .form-group
+            = f.button "Save changes", class: 'btn btn-success'
