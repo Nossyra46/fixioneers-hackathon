@@ -1,6 +1,4 @@
 class OrganisationsController < ApplicationController
-  before_action :load_organisation
-
   def index ; end
 
   def edit ; end
@@ -21,11 +19,5 @@ class OrganisationsController < ApplicationController
     else
       redirect_to root_path, alert: ""
     end
-  end
-
-  private
-
-  def load_organisation
-    @organisation = Organisation.find(params[:id])
   end
 end

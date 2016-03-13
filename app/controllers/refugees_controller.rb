@@ -1,5 +1,5 @@
 class RefugeesController < ApplicationController
-  before_action :load_refugee
+  before_action :load_refugee, except: [:index, :new, :create]
 
   def index
     @refugees = current_organisation.refugees
