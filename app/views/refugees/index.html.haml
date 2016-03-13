@@ -1,6 +1,12 @@
-= form_tag refugees_path do
-  = file_field_tag :file
-  = button_tag "Importer"
+.center-block
+  = form_tag refugees_path do
+    %h1 Import your refugees contacts here
+    .form-group
+      = file_field_tag :file
+    .form-group
+      = button_tag "Importer",  class:"btn btn-primary btn-lg"
+
+
 
 = form_tag sms_path do
   = text_area_tag :message

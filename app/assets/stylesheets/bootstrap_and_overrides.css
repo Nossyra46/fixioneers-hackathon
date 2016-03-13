@@ -5,3 +5,19 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+.center-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.center-block form h1 {
+	margin-bottom: 20px;
+}
+
+.center-block form .form-group:last-child {
+	display: flex;
+	justify-content: center;
+}
