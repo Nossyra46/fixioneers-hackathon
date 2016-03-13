@@ -90,7 +90,7 @@ var LogginForm = React.createClass({
           <input className='form-control input-black' placeholder='Email' type='text' />
         </div>
         <div className='form-group'>
-          <input className='form-control input-black' placeholder='Password' type='text' />
+          <input className='form-control input-black' placeholder='Password' type='password' />
           <button className='btn btn-success btn-grey' style={{backgroundColor: "#9c9c9c !important", color: "#000 !important", borderColor: "#9d9d9d !important"}} type='submit'>Sign in</button>
         </div>
       </form>
