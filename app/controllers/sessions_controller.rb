@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if organisation
       session[:organisation_id] = organisation.id
 
-      redirect_to organisation_path(organisation)
+      redirect_to refugees_path
     else
       redirect_to root_path, alert: ""
     end

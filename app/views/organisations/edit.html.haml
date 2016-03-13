@@ -1,8 +1,13 @@
 .container
   .row
-    .md-col-4
-      %img.img-thumbnail{'src' => '/assets/thumbnail-200-200.png'}
     .md-col-8
       .page-header
-        %h2
-          organisation.name
+        %h2 Editer vos informations
+        = form_for @current_organisation do |f|
+          %label Nom de l'association
+          = f.text_field :name
+          %br
+          %label Numéro de contact
+          = f.text_field :phone_number
+          %br
+          = f.button "Sauvegarder"
