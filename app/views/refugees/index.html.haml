@@ -27,9 +27,9 @@
         %td= refugee.phone_number
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
-        %td= link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', data: {id: refugee.id}
+        %td= link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', id: refugee.id
 
-#text-modal
+#text-modal-single.modal
   .modal-dialog
     .modal-content
       .modal-header
@@ -39,5 +39,5 @@
           %textarea.form-control
           %span.pull-right.label.label-warning
         .modal-footer
-          %button.btn.btn-default#close-modal Close
-          %button.btn.btn-primary Send
+          %button.btn.btn-default{:id => "close-modal"} Close
+          %button.btn.btn-primary{:id => "send-modal"} Send
