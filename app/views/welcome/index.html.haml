@@ -1,17 +1,30 @@
-%nav.navbar.navbar-default
-  .container-fluid.jumbotron
-    .container
-    %h1
-      Project
-    %p.lead
-      Some random text.
-    %button.btn.btn-primary
-      Register
-.container
-  .row
-    .col-md-4
-      %h2
-        Explanation 1
-    .col-md-4
-      %h2
-        Explanation 2
+%body#page-top{"data-spy" => "scroll", "data-target" => ".navbar-fixed-top"}
+  
+  %header.intro
+    .intro-body
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            %h1.brand-heading Communicate easily with your community
+        .row
+          .col-md-4
+            %h3{:class => 'text-shadowed'}
+              Connect to your account
+            %img{:src => 'assets/connexion-icon.png', :class => 'icon'}
+          .col-md-4
+            %h3{:class => 'text-shadowed'}
+              Upload your contact list
+            %img{:src => 'assets/contact-icon.png', :class => 'icon'}
+          .col-md-4
+            %h3{:class => 'text-shadowed'}
+              Text your contacts
+            %br
+            %img{:src => 'assets/msg-icon.png', :class => 'icon'}
+  / Footer
+  %footer
+    .container.text-center
+      %p Copyright &copy; Your Website 2014
+  / jQuery
+
+  / Custom Theme JavaScript
+  %script{:src => "js/grayscale.js"}

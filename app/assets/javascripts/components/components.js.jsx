@@ -3,25 +3,56 @@
 
 var Container = React.createClass({
   getInitialState: function () {
+    return {
+      // isLoggedIn: false,
+      loggedInAs: '',
+      isOpen: false,
+      isDisplayedModal: false,
+      isDisplayedLogOut: false
+    };
+  },
+  componentDidMount: function () {
     $.post('/sessions', function (res) {
       console.log(res);
-      if (res.status === 200) {
+      if (res.name) {
         // this.setState({isLoggedIn: true});
-        return {
-          isLoggedIn: true,
-          isOpen: false
-        };
+        this.setState({
+          // isLoggedIn: true,
+          loggedInAs: res.name,
+        });
       }
       else {
-        return {
-          isLoggedIn: false,
-          isOpen: false
-        };
+        this.setState({
+          // isLoggedIn: false,
+          loggedInAs: '',
+        });
       }
     }.bind(this));
   },
   displayTextModal: function () {
     this.setState({isDisplayedModal: true});
+  },
+  displayLogOutBtn: function () {
+    this.setState({isDisplayedLogOut: true});
+  },
+  hideLogOutBtn: function () {
+    this.setState({isDisplayedLogOut: false});
+  },
+  logout: function () {
+    $.ajax({
+      url: '/sessions',
+      type: 'DELETE',
+      success: function () {
+        this.setState({
+          // isLoggedIn: false,
+          loggedInAs: '',
+        });
+        window.location = 'http://localhost:3000/';
+      }.bind(this),
+      error: function (err) {
+        console.log(err);
+      }
+    });
   },
   loggin: function (e) {
     // TODO AJAX call
@@ -30,13 +61,16 @@ var Container = React.createClass({
 
   },
   render: function () {
-    if (this.state.isLoggedIn) {
+    if (this.state.loggedInAs !== '') {
+      var displaySpan = this.state.isDisplayedLogOut ? 'none' : 'inline';
+      var displayLogOutBtn = this.state.isDisplayedLogOut ? 'inline-block' : 'none';
       return (
-        <ul className='navbar-right'>
-          <a onClick={this.displayTextModal}></a>
-          <button onClick={this.displayTextModal} className='btn btn-primary navbar-btn'>Envoyer un message</button>
+        <div>
+          <span style={{display: displaySpan}} onMouseEnter={this.displayLogOutBtn}>Logged in as: {this.state.loggedInAs}</span>
+          <button style={{display: displayLogOutBtn}} onMouseOut={this.hideLogOutBtn} onClick={this.logout} className='btn btn-danger'>Log Out</button>
+          <button style={{marginLeft: '20px'}} onClick={this.displayTextModal} className='btn btn-primary'>Envoyer un message</button>
           <TextModal isOpen={this.state.isDisplayedModal} />
-        </ul>
+        </div>
       );
     }
     else {
@@ -51,13 +85,13 @@ var Container = React.createClass({
 var LogginForm = React.createClass({
   render: function () {
     return (
-      <form className='navbar-form navbar-right' onSubmit={this.props.loggin}>
+      <form className='navbar-form navbar-right' style={{marginTop: "-50px !important"}} onSubmit={this.props.loggin}>
         <div className='form-group'>
-          <input className='form-control' placeholder='Email' type='text' />
+          <input className='form-control input-black' placeholder='Email' type='text' />
         </div>
         <div className='form-group'>
-          <input className='form-control' placeholder='Password' type='text' />
-          <button className='btn btn-success' type='submit'>Sign in</button>
+          <input className='form-control input-black' placeholder='Password' type='password' />
+          <button className='btn btn-success btn-grey' style={{backgroundColor: "#9c9c9c !important", color: "#000 !important", borderColor: "#9d9d9d !important"}} type='submit'>Sign in</button>
         </div>
       </form>
     );
