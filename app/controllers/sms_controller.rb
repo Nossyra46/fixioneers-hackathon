@@ -5,7 +5,7 @@ class SmsController < ApplicationController
   def create
     @refugees.each { |refugee| SmsSender.send(refugee, current_organisation, translated_message_for(refugee)) }
 
-    redirect_to organisation_path(current_organisation)
+    redirect_to refugees_path
   end
 
   def single_message
@@ -21,10 +21,11 @@ class SmsController < ApplicationController
   end
 
   def translated_message_for(refugee)
-    MessageTranslator.translate(params[:message], refugee.locale)
+    MessageTranslator.translate(params[:message], refugee)
   end
 
   def load_refugees_by_tags
-    @refugees = Refugee.includes(:roles).where(roles: {name: params[:tags]})
+    @refugees = Refugee.all
+    # @refugees = Refugee.includes(:roles).where(roles: {name: params[:tags]})
   end
 end

@@ -1,13 +1,14 @@
 class MessageTranslator
-  attr_reader :message, :locale
+  attr_reader :message, :locale, :refugee
 
-  def initialize(message, locale)
+  def initialize(message, refugee)
     @message = message
-    @locale = locale
+    @refugee = refugee
+    @locale = refugee.locale
   end
 
-  def self.translate(message, locale)
-    new(message, locale).translate
+  def self.translate(message, refugee)
+    new(message, refugee).translate
   end
 
   def translate
@@ -17,7 +18,8 @@ class MessageTranslator
   private
 
   def translated_message
-    translator.translate(message, :from => 'fr', :to => locale)
+    named_message = message.gsub(/@name/, refugee.first_name)
+    translator.translate(named_message.capitalize, :from => 'fr', :to => locale)
   end
 
   def translator
