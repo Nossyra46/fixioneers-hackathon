@@ -22,7 +22,10 @@ class RefugeeImporter
         locale: row[2].to_s
       }
 
-      organisation.refugees.create!(ref_params)
+      refugee = organisation.refugees.create!(ref_params)
+      row[3].split(',').each do |r|
+        refugee.add_role r.downcase
+      end
     end
   end
 end
