@@ -21,4 +21,4 @@
         %td= refugee.first_name
         %td= refugee.phone_number
         %td= refugee.locale
-        %td Tags...
+        %td= refugee.roles.map(&:name).join(', ')

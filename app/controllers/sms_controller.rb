@@ -2,7 +2,9 @@ class SmsController < ApplicationController
   before_action :load_refugees_by_tags
 
   def create
-    @refugees.each { |refugee| SmsSender.send(refugee, translated_message_for(refugee)) }
+    @refugees.each { |refugee| SmsSender.send(refugee, current_organisation, translated_message_for(refugee)) }
+
+    redirect_to organisation_path(current_organisation)
   end
 
   private

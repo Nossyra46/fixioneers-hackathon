@@ -1,13 +1,14 @@
 class SmsSender
-  attr_reader :user, :message
+  attr_reader :user, :message, :organisation
 
-  def initialize(user, message)
+  def initialize(user, organisation, message)
     @user = user
     @message = message
+    @organisation = organisation
   end
 
-  def self.send(user, message)
-    new(user, message).send
+  def self.send(user, organisation, message)
+    new(user, organisation, message).send
   end
 
   def send
@@ -22,8 +23,8 @@ class SmsSender
 
   def send_message
     twilio_client.account.messages.create(
-      from: ENV['TWILIO_PHONE_NUMBER'],
-      to: user.mobile_phone,
+      from: organisation.name.upcase,
+      to: user.phone_number,
       body: message
     )
   rescue Twilio::REST::RequestError
