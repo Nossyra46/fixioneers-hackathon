@@ -1,12 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :load_current_organisation, except: [:destroy]
 
-  def new
-    @organisation = Organisation.new
-  end
-
   def create
-    # raise "HERE I AM"
     organisation = Organisation.find_by(params[:organisation])
 
     if organisation
