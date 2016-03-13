@@ -4,21 +4,21 @@
     .form-group
       = file_field_tag :file
     .form-group
-      = button_tag "Importer",  class:"btn btn-primary btn-lg"
+      = button_tag "Import",  class:"btn btn-primary btn-lg"
 
 
 
 = form_tag sms_path do
   = text_area_tag :message
-  = button_tag "Envoyer"
+  = button_tag "Send"
 
 
 %table.table
   %thead
     %tr
-      %th Prénom
-      %th Numéro
-      %th Langue
+      %th First Name
+      %th Last Name
+      %th Language
       %th Tags
   %tbody
     - @refugees.each do |refugee|
@@ -27,4 +27,17 @@
         %td= refugee.phone_number
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
-        %td= link_to "Editer", refugee_path(refugee), class: 'btn btn-info'
+        %td= link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', id: refugee.id
+
+#text-modal-single.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Send message
+      %form
+        .modal-body
+          %textarea.form-control
+          %span.pull-right.label.label-warning
+        .modal-footer
+          %button.btn.btn-default{:id => "close-modal"} Close
+          %button.btn.btn-primary{:id => "send-modal"} Send

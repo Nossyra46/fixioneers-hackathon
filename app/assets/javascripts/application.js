@@ -18,3 +18,42 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+$(document).ready(function () {
+
+  $('#text-modal-single').hide();
+  var id;
+
+  if ($('.modal-btn').length) {
+    $('.modal-btn').click(function (event) {
+      event.preventDefault();
+      $('#text-modal-single').show();
+      id = event.target.id;
+      // console.log(event.target);
+      return id;
+    });
+
+    $('#close-modal').click(function (event) {
+      event.preventDefault();
+      $('#text-modal-single').hide();
+    });
+
+    $('#send-modal').click(function (event) {
+      console.log(event.target.form[0].value);
+      event.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '/sms/' + id + '/single_message',
+        data: {message: event.target.form[0].value},
+        success: function (res) {
+          console.log(res);
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
+      $('#text-modal-single').hide();
+    });
+  }
+
+});

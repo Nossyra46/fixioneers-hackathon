@@ -36,8 +36,17 @@ var TextModal = React.createClass({
     else {
       // TODO AJAX call
       // post
-      $.post('/sms/', function (data) {
-        console.log('sms sent.');
+      // console.log(event.target[0].value);
+      $.ajax({
+        type: 'POST',
+        url: '/sms',
+        data: {message: event.target[0].value},
+        success: function (res) {
+          console.log(res);
+        },
+        error: function (err) {
+          console.log(err);
+        }
       });
       this.setState({isOpen: false});
     }
@@ -66,7 +75,7 @@ var TextModal = React.createClass({
             </div>
             <form onSubmit={this.handleSend}>
               <div className='modal-body'>
-                <textarea name='message' className='form-control' placeholder='Your message here...' onChange={this.displayCharsLeft}></textarea>
+                <textarea style={{width: '100%', marginBottom: '10px'}} name='message' className='form-control' placeholder='Your message here...' onChange={this.displayCharsLeft}></textarea>
                 <span className={this.state.isTooLong ? 'pull-right label label-warning' : 'pull-right label label-success'}>{this.state.charsLeft}</span>
               </div>
               <div className='modal-footer'>

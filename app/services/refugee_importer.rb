@@ -22,7 +22,13 @@ class RefugeeImporter
         locale: row[2].to_s
       }
 
-      refugee = organisation.refugees.create!(ref_params)
+      if ref = Refugee.find_by(phone_number: ref_params[:phone_number])
+        ref.update(first_name: ref_params[:first_name], locale: ref_params[:locale])
+        refugee = ref
+      else
+        refugee = organisation.refugees.create!(ref_params)
+      end
+
       row[3].split(',').each do |r|
         refugee.add_role r.downcase
       end

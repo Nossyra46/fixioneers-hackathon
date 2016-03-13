@@ -16,14 +16,18 @@
             %li= link_to "Refugees list", refugees_path
             %li= link_to "About #{@current_organisation.name}", edit_organisation_path(@current_organisation)
         - if @current_organisation
-          .navbar-form.navbar-right
-            = link_to "Sign out", sessions_path, method: :delete, class: 'btn btn-danger'
-        - else
-          = form_for Organisation.new, url: sessions_path, html: {class: 'navbar-form navbar-right'} do |f|
-            .form-group
-              = f.text_field :email, class: 'form-control input-black', placeholder: 'Association email'
-            .form-group
-              = f.password_field :password, class: 'form-control input-black', placeholder: 'Password'
-            = f.button "Sign in", class: 'btn btn-success btn-gray'
+          %li= link_to "Refugees list", refugees_path
+          %li= link_to "About #{@current_organisation.name}", edit_organisation_path(@current_organisation)
+      -# - if @current_organisation
+      -#   .navbar-form.navbar-right
+      -#     = link_to "Sign out", sessions_path, method: :delete, class: 'btn btn-danger'
+      -# - else
+      -#   = form_for Organisation.new, url: sessions_path, html: {class: 'navbar-form navbar-right'} do |f|
+      -#     .form-group
+      -#       = f.text_field :email, class: 'form-control', placeholder: 'Email'
+      -#     .form-group
+      -#       = f.password_field :password, class: 'form-control', placeholder: 'Password'
+      -#     = f.button "Sign in", class: 'btn btn-success'
 
-      #sendTextComponent
+      #sendTextComponent.navbar-form.navbar-right
+
