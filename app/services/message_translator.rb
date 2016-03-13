@@ -19,7 +19,7 @@ class MessageTranslator
 
   def translated_message
     named_message = message.gsub(/@name/, refugee.first_name)
-    translator.translate(named_message.capitalize, :from => 'fr', :to => locale)
+    translator.translate(named_message, :from => 'fr', :to => locale)
   end
 
   def translator

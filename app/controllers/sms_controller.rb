@@ -9,7 +9,7 @@ class SmsController < ApplicationController
   end
 
   def single_message
-    SmsSender.send(@refugee, current_organisation, translated_message_for(refugee))
+    SmsSender.send(@refugee, current_organisation, translated_message_for(@refugee))
 
     head :no_content
   end
