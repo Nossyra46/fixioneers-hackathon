@@ -1,0 +1,6 @@
+Connect ?
+
+= form_for @organisation, url: sessions_path do |f|
+  = f.text_field :email
+  = f.password_field :password
+  = f.button "Login"
