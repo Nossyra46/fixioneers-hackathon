@@ -64,6 +64,9 @@ gem 'country_select'
 
 gem "rolify"
 
+#react
+gem 'react-rails', '~> 1.6.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
