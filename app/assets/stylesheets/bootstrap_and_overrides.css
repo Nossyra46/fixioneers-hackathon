@@ -16,3 +16,8 @@
 .center-block form h1 {
 	margin-bottom: 20px;
 }
+
+.center-block form .form-group:last-child {
+	display: flex;
+	justify-content: center;
+}
