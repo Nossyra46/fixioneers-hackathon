@@ -1,0 +1,18 @@
+= form_tag refugees_path do
+  = file_field_tag :file
+  = button_tag "Importer"
+
+%table.table
+  %thead
+    %tr
+      %th Prénom
+      %th Numéro
+      %th Langue
+      %th Tags
+  %tbody
+    - @refugees.each do |refugee|
+      %tr
+        %td= refugee.first_name
+        %td= refugee.phone_number
+        %td= refugee.locale
+        %td Tags...

@@ -5,10 +5,6 @@ class RefugeesController < ApplicationController
     @refugees = current_organisation.refugees
   end
 
-  def new
-    @refugee = Refugee.new
-  end
-
   def edit ; end
 
   def update
@@ -16,7 +12,9 @@ class RefugeesController < ApplicationController
   end
 
   def create
-    Refugee.create(params[:refugee])
+    RefugeeImporter.import(current_organisation)
+
+    redirect_to refugees_path
   end
 
   private

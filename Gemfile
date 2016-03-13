@@ -33,6 +33,8 @@ gem 'carrierwave'
 # gem 'fog'
 # gem 'mini_magick'
 
+gem 'roo', '~> 2.3.2'
+
 # gem 'to_lang'
 # AIzaSyBq_IFR_Zzl-t0DReomQS_11O8o200DvRg
 # gem 'termit'
