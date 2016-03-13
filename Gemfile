@@ -34,8 +34,14 @@ gem 'carrierwave'
 # gem 'mini_magick'
 
 # gem 'to_lang'
+# AIzaSyBq_IFR_Zzl-t0DReomQS_11O8o200DvRg
+# gem 'termit'
+# gem 'easy_translate'
 
-gem 'react-rails', '~> 1.6.0'
+
+# hackaheetch
+# aJsZ8wN2cPaf2FMVIa0Z7L0oJ5hXTGqxBgPdb5RX7rg=
+gem "bing_translator", "~> 4.5.0"
 
 # Templating
 gem 'haml'

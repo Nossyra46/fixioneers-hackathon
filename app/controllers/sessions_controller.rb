@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
-  skip_before_action :load_organisation, except: [:destroy]
-
-  def new ; end
+  skip_before_action :load_current_organisation, except: [:destroy]
 
   def create
-    organisation = Organisation.find_by(email: params[:email], password: params[:password])
+    organisation = Organisation.find_by(params[:organisation])
 
     if organisation
       session[:organisation_id] = organisation.id
+
+      redirect_to organisation_path(organisation)
     else
       redirect_to root_path, alert: ""
     end

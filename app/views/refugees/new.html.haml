@@ -1,0 +1,35 @@
+%form.form-horizontal
+  %fieldset
+    / Form Name
+    %h1.text-center Ajouter un nouveau profil
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "nom"} NOM 
+      .col-md-4
+        %input#nom.form-control.input-md{:name => "nom", :placeholder => "NOM", :required => "", :type => "text"}/
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "prenom"} Prénom 
+      .col-md-4
+        %input#prenom.form-control.input-md{:name => "prenom", :placeholder => "Prénom(s)", :required => "", :type => "text"}/
+    / Text input
+    .form-group
+      %label.col-md-4.control-label{:for => "phone"} Téléphone 
+      .col-md-4
+        %input#phone.form-control.input-md{:name => "phone", :placeholder => "06xxxxxxxx", :required => "", :type => "text"}/
+    / Select Basic
+    .form-group
+      %label.col-md-4.control-label{:for => "tags"} Tags 
+      .col-xs-4
+        %input.btn.btn-default{:type => "button", :value => "tag #1"}
+        %input.btn.btn-primary{:type => "button", :value => "tag #2"}
+        %input.btn.btn-warning{:type => "button", :value => "tag #3"}
+        %input.btn.btn-danger{:type => "button", :value => "tag #3"}
+        %input.btn.btn-success{:type => "button", :value => "tag #5"}/
+    
+    / Button (Double)
+    .form-group
+      %label.col-md-4.control-label{:for => "create"}
+      .col-md-8
+        %button#create.btn.btn-info{:name => "create"} Enregistrer
+        %button#reset.btn.btn-danger{:name => "reset"} Réinitialiser
