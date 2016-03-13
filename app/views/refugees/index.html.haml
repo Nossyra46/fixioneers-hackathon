@@ -22,9 +22,22 @@
       %th Tags
   %tbody
     - @refugees.each do |refugee|
-      %tr{data: {id: refugee.id}}
+      %tr
         %td= refugee.first_name
         %td= refugee.phone_number
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
-        %td= link_to "Edit", refugee_path(refugee), class: 'btn btn-info'
+        %td= link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', data: {id: refugee.id}
+
+#text-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title Send message
+      %form
+        .modal-body
+          %textarea.form-control
+          %span.pull-right.label.label-warning
+        .modal-footer
+          %button.btn.btn-default#close-modal Close
+          %button.btn.btn-primary Send

@@ -18,3 +18,20 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+$(document).ready(function () {
+
+  $('#text-modal').hide();
+
+  if ($('.modal-btn').length) {
+    $('.modal-btn').click(function (event) {
+      event.preventDefault();
+      $('#text-modal').show();
+    });
+
+    $('#close-modal').click(function (event) {
+      $('#text-modal').hide();
+    });
+  }
+
+});
