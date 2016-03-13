@@ -181,9 +181,9 @@ h3.text-shadowed {
 }
 
 .btn-gray {
-    background-color: #9c9c9c;
-    color: #000;
-    border-color: #9d9d9d
+    background-color: #9c9c9c !important;
+    color: #000 !important;
+    border-color: #9d9d9d !important;
 }
 
 @media(min-width:768px) {

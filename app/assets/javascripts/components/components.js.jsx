@@ -85,13 +85,13 @@ var Container = React.createClass({
 var LogginForm = React.createClass({
   render: function () {
     return (
-      <form className='navbar-form navbar-right' onSubmit={this.props.loggin}>
+      <form className='navbar-form navbar-right' style={{marginTop: "-50px !important"}} onSubmit={this.props.loggin}>
         <div className='form-group'>
           <input className='form-control input-black' placeholder='Email' type='text' />
         </div>
         <div className='form-group'>
           <input className='form-control input-black' placeholder='Password' type='text' />
-          <button className='btn btn-success btn-grey' type='submit'>Sign in</button>
+          <button className='btn btn-success btn-grey' style={{backgroundColor: "#9c9c9c !important", color: "#000 !important", borderColor: "#9d9d9d !important"}} type='submit'>Sign in</button>
         </div>
       </form>
     );
