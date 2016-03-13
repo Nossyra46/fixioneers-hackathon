@@ -66,6 +66,12 @@ gem 'country_select'
 
 gem "rolify"
 
+#SASS
+gem 'sass', '~> 3.4', '>= 3.4.21'
+
+#font-awesome-rails
+gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
+
 #react
 gem 'react-rails', '~> 1.6.0'
 
