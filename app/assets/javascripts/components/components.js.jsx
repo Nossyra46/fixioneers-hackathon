@@ -40,7 +40,7 @@ var Container = React.createClass({
   },
   logout: function () {
     $.ajax({
-      url: 'http://localhost:3000/sessions',
+      url: '/sessions',
       type: 'DELETE',
       success: function () {
         this.setState({
