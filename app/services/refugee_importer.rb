@@ -12,7 +12,7 @@ class RefugeeImporter
   end
 
   def import
-    @xls = Roo::Spreadsheet.open("/Users/tib/techrefugees/fixoneers/import.xlsx")
+    @xls = Roo::Spreadsheet.open(Rails.root.join('import.xlsx').to_s)
 
     1.upto(@xls.last_row) do |index|
       row = @xls.row(index).compact
