@@ -25,10 +25,10 @@
         %td= refugee.locale
         %td= refugee.roles.map(&:name).join(', ')
         %td
-          = link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', data: {id: refugee.id}
+          = link_to "Send message", refugee_path(refugee), class: 'modal-btn btn btn-info', id: refugee.id
           = link_to "Edit", refugee_path(refugee), class: 'btn btn-success'
 
-#text-modal
+#text-modal-single.modal
   .modal-dialog
     .modal-content
       .modal-header
@@ -38,5 +38,5 @@
           %textarea.form-control
           %span.pull-right.label.label-warning
         .modal-footer
-          %button.btn.btn-default#close-modal Close
-          %button.btn.btn-primary Send
+          %button.btn.btn-default{:id => "close-modal"} Close
+          %button.btn.btn-primary{:id => "send-modal"} Send
