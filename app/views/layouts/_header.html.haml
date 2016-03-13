@@ -17,6 +17,7 @@
             %span.sr-only (current)
         %li
           %a{:href => "#"} Link
+<<<<<<< HEAD
         -# %li.dropdown
         -#   %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
         -#     Dropdown
@@ -42,3 +43,13 @@
         %button.btn.btn-success{:type => "submit"} Sign in
     / /.navbar-collapse
   / /.container-fluid
+      - if @current_organisation
+        .navbar-form.navbar-right
+          = link_to "Sign out", sessions_path, method: :delete, class: 'btn btn-danger'
+      - else
+        = form_for Organisation.new, url: sessions_path, html: {class: 'navbar-form navbar-right'} do |f|
+          .form-group
+            = f.text_field :email, class: 'form-control', placeholder: 'Email'
+          .form-group
+            = f.password_field :password, class: 'form-control', placeholder: 'Password'
+          = f.button "Sign in", class: 'btn btn-success'
