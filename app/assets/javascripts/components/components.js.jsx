@@ -12,6 +12,7 @@ var Container = React.createClass({
     };
   },
   componentDidMount: function () {
+    if (window.location.pathname !== "/") {
     $.post('/sessions', function (res) {
       console.log(res);
       if (res.name) {
@@ -28,6 +29,7 @@ var Container = React.createClass({
         });
       }
     }.bind(this));
+    }
   },
   displayTextModal: function () {
     this.setState({isDisplayedModal: true});
@@ -55,9 +57,26 @@ var Container = React.createClass({
     });
   },
   loggin: function (e) {
-    // TODO AJAX call
-    // Handled by the back-end
-    // e.preventDefault();
+  e.preventDefault();
+  $.post('/sessions', function (res) {
+    console.log(res);
+    if (res.name) {
+      // this.setState({isLoggedIn: true});
+      this.setState({
+        // isLoggedIn: true,
+        loggedInAs: res.name,
+      });
+    }
+    else {
+      this.setState({
+        // isLoggedIn: false,
+        loggedInAs: '',
+      });
+    }
+  }.bind(this));
+
+
+
 
   },
   render: function () {
